@@ -1785,7 +1785,7 @@ pub fn check_same_set_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
 			for i in 0..n {
 				for j in i..n {
 					if graph_105[i as usize][j as usize] == 1 {
-						union_serial_105(i, j);			
+						union_105(i, j);			
 					}	
 				}	
 			}
@@ -1797,6 +1797,9 @@ pub fn check_same_set_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
 			let mut v = vec![];
               //          let start = PreciseTime::now();
 			for i in 0..pro {
+				if (i == pro - 1) {
+					en = e;
+				}
 				let data = data.clone();
 				v.push(thread::spawn(move ||{
 					for j in st..en {
